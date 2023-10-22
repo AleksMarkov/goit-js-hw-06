@@ -19,9 +19,7 @@ let imgEl = ``;
 images.forEach(myFunction);
 
 function myFunction(item) {
-  imgEl =
-    imgEl +
-    `<li class="gallery-item"><img src="${item.url}" alt="${item.alt}"></img></li>`;
+  imgEl += `<li class="gallery-item"><img src="${item.url}" alt="${item.alt}"></img></li>`;
 }
 
 list.insertAdjacentHTML("afterbegin", imgEl);
