@@ -14,12 +14,23 @@ const images = [
 ];
 
 const list = document.querySelector(".gallery");
-let imgEl = ``;
 
-images.forEach(myFunction);
+createMarkup(images);
 
-function myFunction(item) {
-  imgEl += `<li class="gallery-item"><img src="${item.url}" alt="${item.alt}"></img></li>`;
+function createMarkup(arr) {
+  const markup = arr
+    .map(
+      ({ url, alt }) => `
+      <li class="gallery-item"><img src="${url}" alt="${alt}"></img></li>`
+    )
+    .join("");
+  list.insertAdjacentHTML("afterbegin", markup);
 }
-
-list.insertAdjacentHTML("afterbegin", imgEl);
+// other way:
+// const list = document.querySelector(".gallery");
+// let imgEl = ``;
+// images.forEach(myFunction);
+// function myFunction(item) {
+//   imgEl += `<li class="gallery-item"><img src="${item.url}" alt="${item.alt}"></img></li>`;
+// }
+// list.insertAdjacentHTML("afterbegin", imgEl);
