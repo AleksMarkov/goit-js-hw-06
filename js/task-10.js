@@ -25,12 +25,15 @@ function handleDestroyClick() {
 }
 
 function createBoxes(boxes) {
+  const boxesArr = [];
   for (let i = 0; i < boxes; i++) {
     const box = document.createElement("div");
     box.classList.add("box");
     box.style.backgroundColor = getRandomHexColor();
     box.style.width = `${30 + i * 10}px`;
     box.style.height = `${30 + i * 10}px`;
-    boxesDiv.appendChild(box);
+    boxesArr.push(box);
+    // boxesDiv.appendChild(box); тільки в 10 завданні також треба винести аппенд з цикла (як в 2 завданні), щоб зменьшити кількість звертань до ДОМ.
   }
+  boxesDiv.append(...boxesArr);
 }
